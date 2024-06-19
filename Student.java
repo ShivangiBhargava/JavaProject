@@ -9,7 +9,7 @@ public class Student {
 	private String lastName;
 	private int gradeYear;
 	private String studentID;
-	private String courses = null;
+	private String courses = null ;
 	private int tuitionBalance = 0;
 	private static int costOfCourse = 600;
 	private static int id = 1000; // static means value or property is not specific to an object but is something that is true for all objects
@@ -44,15 +44,15 @@ public class Student {
 	public void enroll() {
 		// get inside a loop, user hits 0 
 		do {
-			System.out.println("Enter course to enroll (Q to quit): ");
+			System.out.print("Enter course to enroll (Q to quit): ");
 			Scanner in = new Scanner(System.in);
 			String course = in.nextLine();
 			if (!course.equals("Q")) {
-				courses	= courses + "\n" + course;
+				courses	= courses + "\n " + course;
 				tuitionBalance = tuitionBalance + costOfCourse;
 			}
 			else { 
-				System.out.println("Break!");
+				//System.out.println("Break!");
 				break; }
 		} while (1 != 0); // forever
 		//System.out.println("ENROLLED IN: " + courses);
@@ -75,9 +75,12 @@ public class Student {
 		
 	}
 	
-	// show status
+	// show status // can use showInfo
+	// toString is a part of object class or the parent class of this
 	public String toString() {
-		return "Name: " +firstName+ " "+lastName+
+		return "Name: " + firstName  + " " + lastName+
+				"\nGrade Level: " +gradeYear +
+				"\nStudent ID: " +studentID+
 				"\nCourses Enrolled: " +courses +
 				"\nBalance: $" +tuitionBalance;
 	}
